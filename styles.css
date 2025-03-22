@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #ccd5ae;
+    display: flex;
+    flex-direction: column;
+} 
+
+.banner {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: 10px;
+    background-color: #e9edc9;
+    border-radius: 20px;
+}
+
+.banner img {
+    padding: 10px;
+    height: 100px;
+}
+
+.titleprog{
+    padding: 5px;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: #fefae0;
+    text-align: center;
+}
+
+.titleprogtable{
+    padding: 5px;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: #fefae0;
+    text-align: center;
+}
+
+.progcodetext,
+.progbranchphase {
+    display: flex;
+    justify-content: start;
+    margin: 20px;
+    padding: 20px;
+    background-color: #faedcd;
+    border-radius: 10px;
+}
+
+#newDescription {
+    width: 80%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#newCode {
+    width: 5%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#newBranch {
+    width: 10%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#newPhase {
+    width: 20%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+  
+label {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.btn{
+    display: flex;
+    justify-content: center;
+}
+
+.addProgBtn {
+    padding: 9px 10px;
+    background-color: #999;
+    color: #000;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.addProgBtn:hover {
+    background-color: #2ab53a;
+    color: white;
+}
+
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    cursor: pointer;
+    position: relative;
+    margin-left: 20px;
+    padding: 12px 8px 12px 10px;
+    font-size: 16px;
+    transition: 0.2s;
+    text-align: start;
+}
+
+table{
+    background-color: #d4a373;
+    width: 90%;
+}
+
+tr:nth-child(odd){
+    background-color: #a4a373;
+}
+
+tr:hover {
+    background-color: #ccc;
+}
+
+input:valid {
+    background-color: palegreen;
+  }
+  
+  input:invalid {
+    background-color: lightpink;
+  }
+  
