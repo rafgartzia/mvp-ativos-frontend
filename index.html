@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     
-    <title>Acompanhamento de Progressões</title>
+    <title>Carteira de Ativos</title>
 </head>
 <body>
     <header class="cabecalho">
@@ -19,47 +19,42 @@
         </div>
     </header>
 
-    <section class="newProgression">
-        <h1 class="titleprog">Cadastrar Progressão</h1>
+    <section class="newAsset">
+        <h1 class="titleprog">Incluir ativo</h1>
         <div class="progcodetext">
-            <label for="newCode">Código:</label>
-            <input type="number" id="newCode" size="3" min="1" max="130" step=1 required>
-            <label for="newDescription">Descrição:</label>
-            <input type="text" id="newDescription" minlength="10" maxlength="350" required>
+            <label for="newSymbol">Código:</label>
+            <input type="text" id="newCode" required>
+
+            <label for="newName">Nome:</label>
+            <input type="text" id="newName" minlength="10" maxlength="50" required>
+
+            <label for="newQuantity">Quantidade:</label>
+            <input type="number" id="newQuantity" size="3" min="1" required>
+
+            <label for="newPrice">Preço médio</label>
+            <input type="number" id="newPrice" step="0.01" required>
         </div>
-        <div class="progbranchphase"> 
-            <label for="newBranch">Ramo:</label>
-            <select name= "newBranch" id="newBranch">
-                <option value="Lobinho">Lobinho</option>
-                <option value="Escoteiro">Escoteiro</option>
-                <option value="Senior">Senior</option>
-            </select>
-            <label for="newPhase">Etapa:</label>
-            <select name= "newPhase" id="newPhase">
-                <option value="Pata Tenra/Saltador">Pata Tenra e Lobo Saltador</option>
-                <option value="Rastreador/Caçador">Lobo Rastreador e Lobo caçador</option>
-                <option value="Pista/Trilha">Pista e Trilha</option>
-                <option value="Rumo/Travessia">Rumo e Travessia</option>
-                <option value="Escalada">Escalada</option>
-                <option value="Conquista">Conquista</option>
-                <option value="Azimute">Azimute</option>
-            </select>
-        </div>
+        
         <div class="btn">
-            <button onclick="newItem()" class="addProgBtn">Adicionar progressão</button>
+            <button onclick="newItem()" class="addAssetBtn">Incluir Ativo</button>
         </div>             
         
     </section>
     
     <!-- Tabela com items existentes -->
-    <section class="progressions">
-        <h1 class="titleprogtable">Lista de Progressões</h1>
-        <table id="progTable">
+    <section class="assets">
+        <h1 class="titleassettable">Carteira de Ativos</h1>
+        <table id="assetTable">
             <tr>
                 <th>Código</th>
-                <th>Descrição</th>
-                <th>Ramo</th>
-                <th>Etapa</th>
+                <th>Nome</th>
+                <th>Quantidade</th>
+                <th>Preço Médio</th>
+                <th>Cotação</th>
+                <th>Data da Cotação</th>
+                <th>Valor Total</th>
+                <th>Lucro/Prejuízo</th>
+                <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px"></th>
                 <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px"></th>
             </tr>
         </table>
