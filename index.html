@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-straight/css/uicons-bold-straight.css'>
     <title>Carteira de Ativos</title>
 </head>
 <body>
@@ -23,7 +23,7 @@
         <h1 class="titleprog">Incluir ativo</h1>
         <div class="progcodetext">
             <label for="newSymbol">Código:</label>
-            <input type="text" id="newCode" required>
+            <input type="text" id="newSymbol" required>
 
             <label for="newName">Nome:</label>
             <input type="text" id="newName" minlength="10" maxlength="50" required>
@@ -48,14 +48,14 @@
             <tr>
                 <th>Código</th>
                 <th>Nome</th>
-                <th>Quantidade</th>
                 <th>Preço Médio</th>
+                <th>Quantidade</th>
                 <th>Cotação</th>
                 <th>Data da Cotação</th>
-                <th>Valor Total</th>
-                <th>Lucro/Prejuízo</th>
-                <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px"></th>
-                <th><img src="https://cdn-icons-png.flaticon.com/512/126/126468.png" width="15px" height="15px"></th>
+                <!--<th>Valor Total</th>
+                <th>Lucro/Prejuízo</th>-->
+                <th><i class="fi fi-bs-trash-xmark"></i></th>
+                <th><i class="fi fi-bs-refresh"></i></th>
             </tr>
         </table>
     </section>
