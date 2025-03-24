@@ -57,14 +57,14 @@ const includeAsset = async (inputSymbol, inputName, inputQuantity, inputPrice) =
   --------------------------------------------------------------------------------------
   Função para criar botão para cada item da lista
   --------------------------------------------------------------------------------------
-*/
+
 const insertButton = (parent) => {
   let span = document.createElement("span");
   let txt = document.createTextNode("\u00D7");
   span.className = "close";
   span.appendChild(txt);
   parent.appendChild(span);
-}
+}*/
 
 
 /*
@@ -73,11 +73,11 @@ const insertButton = (parent) => {
   --------------------------------------------------------------------------------------
 */
 const removeElement = () => {
-  let close = document.getElementsByClassName("close");
+  let delete_asset = document.getElementsByClassName("delete");
   // let table = document.getElementById('myTable');
   let i;
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function () {
+  for (i = 0; i < delete_asset.length; i++) {
+    delete_asset[i].onclick = function () {
       let div = this.parentElement.parentElement;
       const simbolo = div.getElementsByTagName('td')[0].innerHTML
       if (confirm("Você tem certeza?")) {
@@ -96,7 +96,7 @@ const removeElement = () => {
 */
 const deleteAsset = (item) => {
   console.log(item)
-  let url = 'http://127.0.0.1:5000/delete?simbolo=' + item;
+  let url = 'http://127.0.0.1:5000/ativo?simbolo=' + item;
   fetch(url, {
     method: 'delete'
   })
@@ -143,7 +143,10 @@ const insertList = (symbol,name,quantity,price,quote = 'n/d',quote_date = 'n/d')
     let cel = row.insertCell(i);
     cel.textContent = item[i];
   }
-  insertButton(row.insertCell(-1));
+  //insertButton(row.insertCell(-1));
+
+  row.insertCell(-1).innerHTML = '<span class ="update_quote"><i class="fi fi-bs-refresh"></i></span>  |  <span class="delete"><i class="fi fi-bs-trash-xmark"></i></span>';
+
   document.getElementById("newSymbol").value = "";
   document.getElementById("newName").value = "";
 
