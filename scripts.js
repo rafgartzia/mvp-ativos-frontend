@@ -18,6 +18,23 @@ const getList = async () => {
 
 /*
   --------------------------------------------------------------------------------------
+  Função para obter a cotação atualizada de ativos via requisição GET
+  --------------------------------------------------------------------------------------
+*/
+const getQuote(simbolo) = async () => {
+  let url = 'http://127.0.0.1:5000/atualizacotacao';
+  fetch(url, {
+    method: 'get',
+    body: JSON.stringify({simbolo: simbolo})
+  })
+    .then((response) => response.json())
+    .catch((error) => {
+      console.error('Erro ao tentar recuperar as informações do servidor:', error);
+    });
+}
+
+/*
+  --------------------------------------------------------------------------------------
   Chamada da função para carregamento inicial dos dados
   --------------------------------------------------------------------------------------
 */
@@ -69,7 +86,7 @@ const insertButton = (parent) => {
 
 /*
   --------------------------------------------------------------------------------------
-  Função para remover um item da lista de acordo com o click no botão close
+  Função para remover um item da lista de acordo com o click no botão delete
   --------------------------------------------------------------------------------------
 */
 const removeElement = () => {
@@ -88,6 +105,27 @@ const removeElement = () => {
     }
   }
 }
+
+/*
+  --------------------------------------------------------------------------------------
+  Função para atualizar a cotação de um ativo ao clicar no botão de update
+  --------------------------------------------------------------------------------------
+*/
+const updateQuote = () => {
+  let update_quote = document.getElementsByClassName("update_quote");
+  let i;
+  for (i = 0; i < update_quote.length; i++) {
+    update_quote[i].onclick = function () {
+      let div = this.parentElement.parentElement;
+      const simbolo = div.getElementsByTagName('td')[0].innerHTML
+      getQuote(simbolo)
+      //chamada funcao atualizar cotacao
+      //atualizar data e cotacao na tabela
+
+    }
+  }
+}
+
 
 /*
   --------------------------------------------------------------------------------------
@@ -111,7 +149,7 @@ const deleteAsset = (item) => {
   Função para adicionar um novo ativo
   --------------------------------------------------------------------------------------
 */
-const newAssset = () => {
+const newAsset = () => {
   let inputSymbol = document.getElementById("newCode").value;
   let inputName = document.getElementById("newName").value;
   let inputQuantity = document.getElementById("newQuantity").value;
