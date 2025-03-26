@@ -21,7 +21,7 @@ const getList = async () => {
   Função para obter a cotação atualizada de ativos via requisição GET
   --------------------------------------------------------------------------------------
 */
-const getQuote(simbolo) = async () => {
+const getQuote = async (simbolo) => {
   let url = 'http://127.0.0.1:5000/atualizacotacao';
   fetch(url, {
     method: 'get',
