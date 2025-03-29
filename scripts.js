@@ -150,7 +150,7 @@ const deleteAsset = (item) => {
   --------------------------------------------------------------------------------------
 */
 const newAsset = () => {
-  let inputSymbol = document.getElementById("newCode").value;
+  let inputSymbol = document.getElementById("newSymbol").value;
   let inputName = document.getElementById("newName").value;
   let inputQuantity = document.getElementById("newQuantity").value;
   let inputPrice = document.getElementById("newPrice").value;
