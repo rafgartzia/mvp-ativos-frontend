@@ -25,7 +25,7 @@ body {
     height: 100px;
 }
 
-.titleprog{
+.titleAsset{
     padding: 5px;
     border-radius: 10px;
     margin: 20px;
@@ -33,7 +33,7 @@ body {
     text-align: center;
 }
 
-.titleprogtable{
+.titleAssetTable{
     padding: 5px;
     border-radius: 10px;
     margin: 20px;
@@ -41,8 +41,7 @@ body {
     text-align: center;
 }
 
-.progcodetext,
-.progbranchphase {
+.assetcodetext{
     display: flex;
     justify-content: start;
     margin: 20px;
@@ -51,8 +50,8 @@ body {
     border-radius: 10px;
 }
 
-#newDescription {
-    width: 80%;
+#newName {
+    width: 30%;
     padding: 10px 10px;
     margin: 8px 0;
     display: inline-block;
@@ -61,8 +60,8 @@ body {
     box-sizing: border-box;
 }
 
-#newCode {
-    width: 5%;
+#newSymbol {
+    width:  10%;
     padding: 10px 10px;
     margin: 8px 0;
     display: inline-block;
@@ -71,7 +70,7 @@ body {
     box-sizing: border-box;
 }
 
-#newBranch {
+#newQuantity {
     width: 10%;
     padding: 10px 10px;
     margin: 8px 0;
@@ -81,8 +80,8 @@ body {
     box-sizing: border-box;
 }
 
-#newPhase {
-    width: 20%;
+#newPrice {
+    width: 10%;
     padding: 10px 10px;
     margin: 8px 0;
     display: inline-block;
@@ -101,7 +100,7 @@ label {
     justify-content: center;
 }
 
-.addProgBtn {
+.addAssetBtn {
     padding: 9px 10px;
     background-color: #999;
     color: #000;
@@ -112,7 +111,7 @@ label {
     border-radius: 10px;
 }
 
-.addProgBtn:hover {
+.addAssetBtn:hover {
     background-color: #2ab53a;
     color: white;
 }

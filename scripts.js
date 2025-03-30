@@ -9,7 +9,7 @@ const getList = async () => {
     method: 'get'
   })
     .then((response) => response.json())
-    .then((data) => data.ativos.forEach(item => insertList(item.simbolo, item.nome, item.preco_medio, 
+    .then((data) => data.ativos.forEach(item => insertList(item.simbolo, item.nome, item.preco_medio,
       item.quantidade, item.cotacao, item.data_cotacao)))
     .catch((error) => {
       console.error('Erro ao tentar recuperar as informações do servidor:', error);
@@ -27,7 +27,10 @@ const getQuote = async (simbolo) => {
     method: 'put'
   })
     .then((response) => response.json())
-    .then((data) => console.log(data))
+    .then((data) => {
+        insertQuote(data.simbolo, data.cotacao, data.data_cotacao)
+      }
+    )
     .catch((error) => {
       console.error('Erro ao tentar recuperar as informações do servidor:', error);
     });
@@ -60,9 +63,9 @@ const includeAsset = async (inputSymbol, inputName, inputQuantity, inputPrice) =
     body: formData
   })
     .then((response) => {
-        if(response.status == 200){
-            insertList(inputSymbol, inputName, inputQuantity, inputPrice,'n/a','n/a') 
-        }
+      if (response.status == 200) {
+        insertList(inputSymbol, inputName, inputQuantity, inputPrice, 'n/a', 'n/a')
+      }
     })
     .catch((error) => {
       console.error('Erro ao tentar inserir ativo:', error);
@@ -105,7 +108,6 @@ const updateQuote = () => {
       let div = this.parentElement.parentElement;
       const simbolo = div.getElementsByTagName('td')[0].innerHTML
       getQuote(simbolo);
-
     }
   }
 }
@@ -141,12 +143,12 @@ const newAsset = () => {
 
   //console.log("teste: ", inputCode, inputDescription, inputBranch, inputPhase)
 
-  if((inputSymbol === '')||(inputName === '')||(inputQuantity === '')||(inputPrice === '')){
+  if ((inputSymbol === '') || (inputName === '') || (inputQuantity === '') || (inputPrice === '')) {
     alert('Preencher os valores requeridos!!')
   } else {
-        //console.log("teste: ", inputCode, inputDescription, inputBranch, inputPhase)
-        includeAsset(inputSymbol, inputName, inputQuantity, inputPrice)  
-    }
+    //console.log("teste: ", inputCode, inputDescription, inputBranch, inputPhase)
+    includeAsset(inputSymbol.toUpperCase(), inputName, inputQuantity, inputPrice)
+  }
 }
 
 /*
@@ -155,9 +157,9 @@ const newAsset = () => {
   --------------------------------------------------------------------------------------
 */
 
-const insertList = (symbol,name,quantity,price,quote = 'n/d',quote_date = 'n/d') => {
+const insertList = (symbol, name, quantity, price, quote = 'n/d', quote_date = 'n/d') => {
 
-  let item = [symbol,name,quantity,price,quote,quote_date];
+  let item = [symbol, name, quantity, price, quote, quote_date];
 
   let table = document.getElementById('assetTable');
   let row = table.insertRow();
@@ -172,7 +174,29 @@ const insertList = (symbol,name,quantity,price,quote = 'n/d',quote_date = 'n/d')
 
   document.getElementById("newSymbol").value = "";
   document.getElementById("newName").value = "";
+  document.getElementById("newQuantity").value = "";
+  document.getElementById("newPrice").value = "";
 
   removeElement()
   updateQuote()
+}
+
+/*
+  --------------------------------------------------------------------------------------
+  Função para atualizar a cotacao e data da cotacao de um ativo
+  --------------------------------------------------------------------------------------
+*/
+
+const insertQuote = (symbol, quote, quote_date) => {
+
+  let table = document.getElementById('assetTable');
+
+  for (let i = 0; i < table.rows.length; i++) {
+    const row = table.rows[i];
+
+    if (row.cells[0].innerHTML == symbol) {
+      row.cells[4].innerHTML = quote;
+      row.cells[5].innerHTML = quote_date;
+    }
+  }
 }
