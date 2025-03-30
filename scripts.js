@@ -24,9 +24,10 @@ const getList = async () => {
 const getQuote = async (simbolo) => {
   let url = 'http://127.0.0.1:5000/atualizacotacao?simbolo=' + simbolo;
   fetch(url, {
-    method: 'patch'
+    method: 'put'
   })
     .then((response) => response.json())
+    .then((data) => console.log(data))
     .catch((error) => {
       console.error('Erro ao tentar recuperar as informações do servidor:', error);
     });
@@ -71,20 +72,6 @@ const includeAsset = async (inputSymbol, inputName, inputQuantity, inputPrice) =
 
 /*
   --------------------------------------------------------------------------------------
-  Função para criar botão para cada item da lista
-  --------------------------------------------------------------------------------------
-
-const insertButton = (parent) => {
-  let span = document.createElement("span");
-  let txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  parent.appendChild(span);
-}*/
-
-
-/*
-  --------------------------------------------------------------------------------------
   Função para remover um item da lista de acordo com o click no botão delete
   --------------------------------------------------------------------------------------
 */
@@ -117,9 +104,7 @@ const updateQuote = () => {
     update_quote[i].onclick = function () {
       let div = this.parentElement.parentElement;
       const simbolo = div.getElementsByTagName('td')[0].innerHTML
-      getQuote(simbolo)
-      //chamada funcao atualizar cotacao
-      //atualizar data e cotacao na tabela
+      getQuote(simbolo);
 
     }
   }
