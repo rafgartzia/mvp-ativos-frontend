@@ -157,7 +157,8 @@ const newAsset = () => {
 
 const insertList = (symbol,name,quantity,price,quote = 'n/d',quote_date = 'n/d') => {
 
-  let item = [symbol,name,quantity,price,quote,quote_date]
+  let item = [symbol,name,quantity,price,quote,quote_date];
+
   let table = document.getElementById('assetTable');
   let row = table.insertRow();
 
