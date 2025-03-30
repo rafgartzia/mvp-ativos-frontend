@@ -6,7 +6,7 @@
 const getList = async () => {
   let url = 'http://127.0.0.1:5000/ativos';
   fetch(url, {
-    method: 'get',
+    method: 'get'
   })
     .then((response) => response.json())
     .then((data) => data.ativos.forEach(item => insertList(item.simbolo, item.nome, item.preco_medio, 
@@ -22,10 +22,9 @@ const getList = async () => {
   --------------------------------------------------------------------------------------
 */
 const getQuote = async (simbolo) => {
-  let url = 'http://127.0.0.1:5000/atualizacotacao';
+  let url = 'http://127.0.0.1:5000/atualizacotacao?simbolo=' + simbolo;
   fetch(url, {
-    method: 'get',
-    body: JSON.stringify({simbolo: simbolo})
+    method: 'patch'
   })
     .then((response) => response.json())
     .catch((error) => {
@@ -189,4 +188,5 @@ const insertList = (symbol,name,quantity,price,quote = 'n/d',quote_date = 'n/d')
   document.getElementById("newName").value = "";
 
   removeElement()
+  updateQuote()
 }
