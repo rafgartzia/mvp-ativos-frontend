@@ -130,14 +130,13 @@ td {
     margin-left: 20px;
     padding: 12px 8px 12px 10px;
     font-size: 16px;
-    color: #ddd;
-    font-weight: bold;
+    color: #eee;
     transition: 0.2s;
     text-align: start;
 }
 
 table{
-    background-color: #d4a373;
+    background-color: #232f34;
     width: 90%;
 }
 
@@ -148,12 +147,4 @@ tr:nth-child(odd){
 tr:hover {
     background-color: #4a6572;
 }
-
-input:valid {
-    background-color: palegreen;
-  }
-  
-input:invalid {
-    background-color: lightpink;
-  }
   
