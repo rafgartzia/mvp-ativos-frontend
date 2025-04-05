@@ -71,7 +71,7 @@ $ docker build -t front .
 Uma vez criada a imagem, para executar o container basta executar, **como administrador**, seguinte o comando:
 
 ```
-$ docker run -p 8080:8080
+$ docker run -p 80:80 front
 ```
 
 Abra o [http://localhost:8080/#/](http://localhost:8080/#/) no navegador para acessar o frontend.
