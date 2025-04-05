@@ -25,7 +25,7 @@ O mvp foi estruturado conforme o diagrama:
 
 ```mermaid
 architecture-beta
-    group api(cloud)[API]
+    group api(server)[API]
     service server(server)[api_main] in api
     service db(database)[SQLite] in api
     db:T >-- B:server
@@ -34,7 +34,7 @@ architecture-beta
     service server2(server)[brapidev] in brapi
     server:R --> L:server2
 
-    group front(cloud)[frontend]
+    group front(server)[frontend]
     service server3(server)[frontend] in front
     server3:R --> L:server
 ```
