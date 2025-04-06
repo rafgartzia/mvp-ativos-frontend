@@ -64,7 +64,7 @@ const includeAsset = async (inputSymbol, inputName, inputQuantity, inputPrice) =
   })
     .then((response) => {
       if (response.status == 200) {
-        insertList(inputSymbol, inputName, inputQuantity, inputPrice, 'n/a', 'n/a')
+        insertList(inputSymbol, inputName, inputPrice, inputQuantity, 'n/a', 'n/a')
       }
     })
     .catch((error) => {
